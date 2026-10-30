@@ -10,6 +10,11 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AssistantRouteImport } from './routes/assistant'
+import { Route as CompareRouteImport } from './routes/compare'
+import { Route as EligibilityRouteImport } from './routes/eligibility'
+import { Route as NotificationsRouteImport } from './routes/notifications'
+import { Route as RightsRouteImport } from './routes/rights'
 import { Route as TranslateRouteImport } from './routes/translate'
 import { Route as UploadRouteImport } from './routes/upload'
 import { Route as ExplanationIdRouteImport } from './routes/explanation.$id'
@@ -19,6 +24,31 @@ import { Route as SchemesIdRouteImport } from './routes/schemes.$id'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AssistantRoute = AssistantRouteImport.update({
+  id: '/assistant',
+  path: '/assistant',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompareRoute = CompareRouteImport.update({
+  id: '/compare',
+  path: '/compare',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EligibilityRoute = EligibilityRouteImport.update({
+  id: '/eligibility',
+  path: '/eligibility',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NotificationsRoute = NotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RightsRoute = RightsRouteImport.update({
+  id: '/rights',
+  path: '/rights',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TranslateRoute = TranslateRouteImport.update({
@@ -49,6 +79,11 @@ const SchemesIdRoute = SchemesIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/assistant': typeof AssistantRoute
+  '/compare': typeof CompareRoute
+  '/eligibility': typeof EligibilityRoute
+  '/notifications': typeof NotificationsRoute
+  '/rights': typeof RightsRoute
   '/translate': typeof TranslateRoute
   '/upload': typeof UploadRoute
   '/explanation/$id': typeof ExplanationIdRoute
@@ -57,6 +92,11 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/assistant': typeof AssistantRoute
+  '/compare': typeof CompareRoute
+  '/eligibility': typeof EligibilityRoute
+  '/notifications': typeof NotificationsRoute
+  '/rights': typeof RightsRoute
   '/translate': typeof TranslateRoute
   '/upload': typeof UploadRoute
   '/explanation/$id': typeof ExplanationIdRoute
@@ -66,6 +106,11 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/assistant': typeof AssistantRoute
+  '/compare': typeof CompareRoute
+  '/eligibility': typeof EligibilityRoute
+  '/notifications': typeof NotificationsRoute
+  '/rights': typeof RightsRoute
   '/translate': typeof TranslateRoute
   '/upload': typeof UploadRoute
   '/explanation/$id': typeof ExplanationIdRoute
@@ -76,6 +121,11 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/assistant'
+    | '/compare'
+    | '/eligibility'
+    | '/notifications'
+    | '/rights'
     | '/translate'
     | '/upload'
     | '/explanation/$id'
@@ -84,6 +134,11 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/assistant'
+    | '/compare'
+    | '/eligibility'
+    | '/notifications'
+    | '/rights'
     | '/translate'
     | '/upload'
     | '/explanation/$id'
@@ -92,6 +147,11 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/assistant'
+    | '/compare'
+    | '/eligibility'
+    | '/notifications'
+    | '/rights'
     | '/translate'
     | '/upload'
     | '/explanation/$id'
@@ -101,6 +161,11 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AssistantRoute: typeof AssistantRoute
+  CompareRoute: typeof CompareRoute
+  EligibilityRoute: typeof EligibilityRoute
+  NotificationsRoute: typeof NotificationsRoute
+  RightsRoute: typeof RightsRoute
   TranslateRoute: typeof TranslateRoute
   UploadRoute: typeof UploadRoute
   ExplanationIdRoute: typeof ExplanationIdRoute
@@ -115,6 +180,41 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/assistant': {
+      id: '/assistant'
+      path: '/assistant'
+      fullPath: '/assistant'
+      preLoaderRoute: typeof AssistantRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare': {
+      id: '/compare'
+      path: '/compare'
+      fullPath: '/compare'
+      preLoaderRoute: typeof CompareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/eligibility': {
+      id: '/eligibility'
+      path: '/eligibility'
+      fullPath: '/eligibility'
+      preLoaderRoute: typeof EligibilityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/notifications': {
+      id: '/notifications'
+      path: '/notifications'
+      fullPath: '/notifications'
+      preLoaderRoute: typeof NotificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rights': {
+      id: '/rights'
+      path: '/rights'
+      fullPath: '/rights'
+      preLoaderRoute: typeof RightsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/translate': {
@@ -157,6 +257,11 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AssistantRoute: AssistantRoute,
+  CompareRoute: CompareRoute,
+  EligibilityRoute: EligibilityRoute,
+  NotificationsRoute: NotificationsRoute,
+  RightsRoute: RightsRoute,
   TranslateRoute: TranslateRoute,
   UploadRoute: UploadRoute,
   ExplanationIdRoute: ExplanationIdRoute,
