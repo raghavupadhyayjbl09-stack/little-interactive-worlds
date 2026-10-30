@@ -60,6 +60,7 @@ function UploadPage() {
       const id = setTimeout(() => navigate({ to: "/explanation/$id", params: { id: "orunodoi-guidelines" } }), 700);
       return () => clearTimeout(id);
     }
+    return undefined;
   }, [step, navigate]);
 
   const start = () => {
