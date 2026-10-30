@@ -66,7 +66,7 @@ export function AudioPlayer({ texts, title }: { texts: Partial<Record<Lang, stri
           </button>
           <button onClick={() => { setPos(0); setPlaying(true); }} aria-label="Replay" className="rounded-full p-2 text-muted-foreground hover:bg-secondary"><RotateCcw className="h-4 w-4" /></button>
           <div className="flex-1">
-            <Slider value={[pos]} max={duration} step={0.25} onValueChange={([v]) => setPos(v)} aria-label="Audio progress" />
+            <Slider value={[pos]} max={duration} step={0.25} onValueChange={([v]) => setPos(v ?? 0)} aria-label="Audio progress" />
             <div className="mt-1 flex justify-between text-xs text-muted-foreground"><span>{fmt(pos)}</span><span>{fmt(duration)}</span></div>
           </div>
           <div className="hidden sm:flex items-end gap-0.5 h-6" aria-hidden>
@@ -86,7 +86,7 @@ export function AudioPlayer({ texts, title }: { texts: Partial<Record<Lang, stri
           </div>
           <div className="flex items-center gap-2 min-w-32 flex-1 max-w-48">
             <Volume2 className="h-4 w-4 text-muted-foreground" />
-            <Slider value={[vol]} max={100} onValueChange={([v]) => setVol(v)} aria-label="Volume" />
+            <Slider value={[vol]} max={100} onValueChange={([v]) => setVol(v ?? 0)} aria-label="Volume" />
           </div>
         </div>
       </div>

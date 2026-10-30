@@ -89,7 +89,7 @@ function Home() {
     { icon: Compass, k: "quick.find", to: "/schemes" },
     { icon: FileSearch, k: "quick.policy", to: "/upload" },
     { icon: ListChecks, k: "quick.elig", to: "/eligibility" },
-    { icon: Headphones, k: "quick.listen", to: "/explanation/orunodoi-guidelines" },
+    { icon: Headphones, k: "quick.listen", to: "/translate" },
     { icon: MessageCircle, k: "quick.ask", to: "/assistant" },
     { icon: Scale, k: "quick.rights", to: "/rights" },
   ] as const;

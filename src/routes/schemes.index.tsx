@@ -10,9 +10,9 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/schemes/")({
-  validateSearch: (s: Record<string, unknown>) => ({
-    q: typeof s.q === "string" ? s.q : undefined,
-    category: typeof s.category === "string" ? s.category : undefined,
+  validateSearch: (s: Record<string, unknown>): { q?: string; category?: string } => ({
+    q: typeof s["q"] === "string" ? (s["q"] as string) : undefined,
+    category: typeof s["category"] === "string" ? (s["category"] as string) : undefined,
   }),
   head: () => ({
     meta: [
@@ -103,7 +103,7 @@ function Schemes() {
             <fieldset><legend className="text-sm font-medium">{t("schemes.level")}</legend>
               <div className="mt-1 grid grid-cols-3 gap-1 rounded-lg border p-1 text-xs">
                 {[["", t("common.all")], ["Central", t("schemes.central")], ["State", t("schemes.stateGov")]].map(([v, l]) => (
-                  <button key={v} onClick={() => setLevel(v)} className={cn("rounded-md px-1 py-1.5 font-medium", level === v ? "bg-primary text-primary-foreground" : "hover:bg-secondary")}>{l}</button>
+                  <button key={v} onClick={() => setLevel(v ?? "")} className={cn("rounded-md px-1 py-1.5 font-medium", level === v ? "bg-primary text-primary-foreground" : "hover:bg-secondary")}>{l}</button>
                 ))}
               </div>
             </fieldset>

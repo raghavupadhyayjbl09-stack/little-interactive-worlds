@@ -11,7 +11,7 @@ import { evaluate } from "@/lib/eligibility";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/eligibility")({
-  validateSearch: (s: Record<string, unknown>) => ({ scheme: typeof s.scheme === "string" ? s.scheme : undefined }),
+  validateSearch: (s: Record<string, unknown>): { scheme?: string } => ({ scheme: typeof s["scheme"] === "string" ? (s["scheme"] as string) : undefined }),
   head: () => ({
     meta: [
       { title: "Eligibility Checker – JanSathi AI" },
@@ -99,7 +99,7 @@ function Eligibility() {
     );
   }
 
-  const q = qs[idx];
+  const q = qs[idx]!;
   return (
     <div className="container-page max-w-2xl py-10">
       <button onClick={() => setStarted(false)} className="flex items-center gap-1 text-sm text-muted-foreground hover:text-primary"><ArrowLeft className="h-4 w-4" />{t("elig.choose")}</button>
