@@ -11,8 +11,8 @@ import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/schemes/")({
   validateSearch: (s: Record<string, unknown>): { q?: string; category?: string } => ({
-    q: typeof s["q"] === "string" ? (s["q"] as string) : undefined,
-    category: typeof s["category"] === "string" ? (s["category"] as string) : undefined,
+    ...(typeof s["q"] === "string" ? { q: s["q"] as string } : {}),
+    ...(typeof s["category"] === "string" ? { category: s["category"] as string } : {}),
   }),
   head: () => ({
     meta: [

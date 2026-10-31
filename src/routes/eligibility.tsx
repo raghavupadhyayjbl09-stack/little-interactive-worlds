@@ -11,7 +11,7 @@ import { evaluate } from "@/lib/eligibility";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/eligibility")({
-  validateSearch: (s: Record<string, unknown>): { scheme?: string } => ({ scheme: typeof s["scheme"] === "string" ? (s["scheme"] as string) : undefined }),
+  validateSearch: (s: Record<string, unknown>): { scheme?: string } => (typeof s["scheme"] === "string" ? { scheme: s["scheme"] as string } : {}),
   head: () => ({
     meta: [
       { title: "Eligibility Checker – JanSathi AI" },
