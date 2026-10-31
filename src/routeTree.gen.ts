@@ -12,9 +12,12 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AssistantRouteImport } from './routes/assistant'
 import { Route as CompareRouteImport } from './routes/compare'
+import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as EligibilityRouteImport } from './routes/eligibility'
+import { Route as FeedbackRouteImport } from './routes/feedback'
 import { Route as NotificationsRouteImport } from './routes/notifications'
 import { Route as RightsRouteImport } from './routes/rights'
+import { Route as SavedRouteImport } from './routes/saved'
 import { Route as TranslateRouteImport } from './routes/translate'
 import { Route as UploadRouteImport } from './routes/upload'
 import { Route as ExplanationIdRouteImport } from './routes/explanation.$id'
@@ -36,9 +39,19 @@ const CompareRoute = CompareRouteImport.update({
   path: '/compare',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EligibilityRoute = EligibilityRouteImport.update({
   id: '/eligibility',
   path: '/eligibility',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeedbackRoute = FeedbackRouteImport.update({
+  id: '/feedback',
+  path: '/feedback',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NotificationsRoute = NotificationsRouteImport.update({
@@ -49,6 +62,11 @@ const NotificationsRoute = NotificationsRouteImport.update({
 const RightsRoute = RightsRouteImport.update({
   id: '/rights',
   path: '/rights',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SavedRoute = SavedRouteImport.update({
+  id: '/saved',
+  path: '/saved',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TranslateRoute = TranslateRouteImport.update({
@@ -81,9 +99,12 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/assistant': typeof AssistantRoute
   '/compare': typeof CompareRoute
+  '/dashboard': typeof DashboardRoute
   '/eligibility': typeof EligibilityRoute
+  '/feedback': typeof FeedbackRoute
   '/notifications': typeof NotificationsRoute
   '/rights': typeof RightsRoute
+  '/saved': typeof SavedRoute
   '/translate': typeof TranslateRoute
   '/upload': typeof UploadRoute
   '/explanation/$id': typeof ExplanationIdRoute
@@ -94,9 +115,12 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/assistant': typeof AssistantRoute
   '/compare': typeof CompareRoute
+  '/dashboard': typeof DashboardRoute
   '/eligibility': typeof EligibilityRoute
+  '/feedback': typeof FeedbackRoute
   '/notifications': typeof NotificationsRoute
   '/rights': typeof RightsRoute
+  '/saved': typeof SavedRoute
   '/translate': typeof TranslateRoute
   '/upload': typeof UploadRoute
   '/explanation/$id': typeof ExplanationIdRoute
@@ -108,9 +132,12 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/assistant': typeof AssistantRoute
   '/compare': typeof CompareRoute
+  '/dashboard': typeof DashboardRoute
   '/eligibility': typeof EligibilityRoute
+  '/feedback': typeof FeedbackRoute
   '/notifications': typeof NotificationsRoute
   '/rights': typeof RightsRoute
+  '/saved': typeof SavedRoute
   '/translate': typeof TranslateRoute
   '/upload': typeof UploadRoute
   '/explanation/$id': typeof ExplanationIdRoute
@@ -123,9 +150,12 @@ export interface FileRouteTypes {
     | '/'
     | '/assistant'
     | '/compare'
+    | '/dashboard'
     | '/eligibility'
+    | '/feedback'
     | '/notifications'
     | '/rights'
+    | '/saved'
     | '/translate'
     | '/upload'
     | '/explanation/$id'
@@ -136,9 +166,12 @@ export interface FileRouteTypes {
     | '/'
     | '/assistant'
     | '/compare'
+    | '/dashboard'
     | '/eligibility'
+    | '/feedback'
     | '/notifications'
     | '/rights'
+    | '/saved'
     | '/translate'
     | '/upload'
     | '/explanation/$id'
@@ -149,9 +182,12 @@ export interface FileRouteTypes {
     | '/'
     | '/assistant'
     | '/compare'
+    | '/dashboard'
     | '/eligibility'
+    | '/feedback'
     | '/notifications'
     | '/rights'
+    | '/saved'
     | '/translate'
     | '/upload'
     | '/explanation/$id'
@@ -163,9 +199,12 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AssistantRoute: typeof AssistantRoute
   CompareRoute: typeof CompareRoute
+  DashboardRoute: typeof DashboardRoute
   EligibilityRoute: typeof EligibilityRoute
+  FeedbackRoute: typeof FeedbackRoute
   NotificationsRoute: typeof NotificationsRoute
   RightsRoute: typeof RightsRoute
+  SavedRoute: typeof SavedRoute
   TranslateRoute: typeof TranslateRoute
   UploadRoute: typeof UploadRoute
   ExplanationIdRoute: typeof ExplanationIdRoute
@@ -196,11 +235,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CompareRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/eligibility': {
       id: '/eligibility'
       path: '/eligibility'
       fullPath: '/eligibility'
       preLoaderRoute: typeof EligibilityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/feedback': {
+      id: '/feedback'
+      path: '/feedback'
+      fullPath: '/feedback'
+      preLoaderRoute: typeof FeedbackRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/notifications': {
@@ -215,6 +268,13 @@ declare module '@tanstack/react-router' {
       path: '/rights'
       fullPath: '/rights'
       preLoaderRoute: typeof RightsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/saved': {
+      id: '/saved'
+      path: '/saved'
+      fullPath: '/saved'
+      preLoaderRoute: typeof SavedRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/translate': {
@@ -259,9 +319,12 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AssistantRoute: AssistantRoute,
   CompareRoute: CompareRoute,
+  DashboardRoute: DashboardRoute,
   EligibilityRoute: EligibilityRoute,
+  FeedbackRoute: FeedbackRoute,
   NotificationsRoute: NotificationsRoute,
   RightsRoute: RightsRoute,
+  SavedRoute: SavedRoute,
   TranslateRoute: TranslateRoute,
   UploadRoute: UploadRoute,
   ExplanationIdRoute: ExplanationIdRoute,
