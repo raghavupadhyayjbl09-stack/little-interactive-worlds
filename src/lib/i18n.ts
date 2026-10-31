@@ -429,6 +429,8 @@ const bn: Dict = {
   "nav.compare": "নীতির পরিবর্তন",
   "nav.notifications": "বিজ্ঞপ্তি",
   "nav.saved": "সংরক্ষিত",
+  "saved.emptyTitle": "এখনো কোনো সংরক্ষিত নেই",
+  "saved.emptyText": "প্রকল্পগুলি দেখুন এবং যেকোনো প্রকল্পে বুকমার্ক আইকনে চাপুন — সেটি এখানে যুক্ত হবে।",
   "nav.dashboard": "আমার ড্যাশবোর্ড",
   "nav.admin": "অ্যাডমিন",
   "nav.feedback": "মতামত",
